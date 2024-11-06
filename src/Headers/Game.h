@@ -15,6 +15,11 @@ private:
 	sf::Clock clock;
 	static float deltaTime;
 
+private:
+	void render();
+	void update();
+	void tick();
+
 public:
 	Game();
 	~Game();

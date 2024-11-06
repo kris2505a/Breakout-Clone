@@ -1,5 +1,6 @@
 #include "Headers/Game.h"
 #include "Headers/Log.h"
+#include <fstream>
 
 float Game::deltaTime = 0;
 
@@ -11,11 +12,15 @@ Game::Game() {
 
 
 void Game::initVariables() {
-	this->resolution = sf::VideoMode(1280, 720);
-	Log::messageLog("Resolution set to 1280 x 720");
-	this->title = "Breakout-Clone";
-	this->fps = 120;
-	Log::messageLog("Frames Per Second set to: 120");
+	std::ifstream winConfig("config/window.ini");
+	if (!winConfig.is_open()) {
+		Log::errorLog("Unable to open window config file.");
+		return;
+	}
+	std::getline(winConfig, this->title);
+	winConfig >> this->resolution.width >> this->resolution.height;
+	winConfig >> this->fps;
+	winConfig.close();
 }
 
 void Game::initWindow() {
@@ -51,8 +56,22 @@ void Game::gameLoop() {
 			if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				window->close();
 		}
-
+		deltaTime = clock.restart().asSeconds();
 		window->clear(sf::Color::Cyan);
 		window->display();
 	}
+}
+
+
+void Game::render() {
+
+}
+
+void Game::update() {
+
+}
+
+void Game::tick() {
+	this->update();
+	this->render();
 }
