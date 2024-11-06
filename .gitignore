@@ -1,0 +1,10 @@
+.vs/
+out/.cmake
+out/CMakeFiles
+out/Testing
+out/.ninja_deps
+out/.ninja_log
+out/build.ninja
+out/cmake_install.cmake
+out/CMakeCache.txt
+out/VSInheritEnvironments.txt
