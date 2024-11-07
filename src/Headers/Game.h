@@ -4,9 +4,6 @@
 #include <SFML/System.hpp>
 
 
-
-
-
 class Game {
 
 private:
