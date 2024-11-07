@@ -43,6 +43,7 @@ Game::~Game() {
 		delete this->window;
 		Log::messageLog("Window Destroyed.");
 	}
+
 }
 
 

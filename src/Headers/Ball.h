@@ -9,6 +9,7 @@ private:
 	sf::CircleShape circle;
 	sf::Vector2f location{ 0, 0 };
 	sf::Vector2f speed{ 0, 0 };
+	bool active{ false };
 
 
 private:
