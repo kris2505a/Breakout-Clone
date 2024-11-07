@@ -1,13 +1,15 @@
 #include "Headers/Game.h"
 #include "Headers/Log.h"
 #include <fstream>
+#include "Headers/Ball.h"
 
-float Game::deltaTime = 0;
+
 
 
 Game::Game() {
 	this->initVariables();
 	this->initWindow();
+	this->ball = new Ball(this->window);
 }
 
 
@@ -21,6 +23,7 @@ void Game::initVariables() {
 	winConfig >> this->resolution.width >> this->resolution.height;
 	winConfig >> this->fps;
 	winConfig.close();
+	
 }
 
 void Game::initWindow() {
@@ -33,10 +36,6 @@ void Game::initWindow() {
 	window->setFramerateLimit(this->fps);
 }
 
-
-float Game::getDeltaTime() {
-	return deltaTime;
-}
 
 
 Game::~Game() {
@@ -58,13 +57,14 @@ void Game::gameLoop() {
 		}
 		deltaTime = clock.restart().asSeconds();
 		window->clear(sf::Color::Cyan);
+		this->tick();
 		window->display();
 	}
 }
 
 
 void Game::render() {
-
+	
 }
 
 void Game::update() {
@@ -72,6 +72,5 @@ void Game::update() {
 }
 
 void Game::tick() {
-	this->update();
-	this->render();
+	this->ball->tick(this->deltaTime);
 }

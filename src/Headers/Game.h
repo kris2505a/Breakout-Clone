@@ -5,6 +5,8 @@
 
 
 
+
+
 class Game {
 
 private:
@@ -13,7 +15,10 @@ private:
 	int fps{ 120 };
 	sf::RenderWindow* window{ nullptr };
 	sf::Clock clock;
-	static float deltaTime;
+	float deltaTime;
+
+private:
+	class Ball* ball{ nullptr };
 
 private:
 	void render();
@@ -25,7 +30,7 @@ public:
 	~Game();
 	void initWindow();
 	void initVariables();
-	static float getDeltaTime();
+
 
 	void gameLoop();
 

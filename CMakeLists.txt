@@ -14,10 +14,8 @@ project ("Breakout-Clone")
 include_directories(Breakout-Clone ${CMAKE_SOURCE_DIR}/Dependencies/include)
 
 
-
-#file("src/config/window.ini")
 # Add source to this project's executable.
-add_executable (Breakout-Clone "src/main.cpp" "src/Game.cpp" "src/Headers/Game.h" "src/Headers/Log.h" "src/Headers/Ball.h")
+add_executable (Breakout-Clone "src/main.cpp" "src/Game.cpp" "src/Headers/Game.h" "src/Headers/Log.h" "src/Headers/Ball.h" "src/Ball.cpp")
 
 target_link_libraries(Breakout-Clone ${CMAKE_SOURCE_DIR}/Dependencies/lib/sfml-graphics.lib)
 target_link_libraries(Breakout-Clone ${CMAKE_SOURCE_DIR}/Dependencies/lib/sfml-main.lib)

@@ -7,25 +7,23 @@
 #define RESET   "\033[0m"
 
 
-static class Log {
-
-public:
-	static void messageLog(const std::string&&);
-	static void errorLog(const std::string&&);
-	static void debugLog(const std::string&&);
-
-};
-
-
-
-void Log::messageLog(const std::string&& msg) {
-	std::cout << GREEN << "[Message]: " << msg << RESET << std::endl;
+namespace Log {
+	static void messageLog(std::string&&);
+	static void errorLog(std::string&&);
+	static void debugLog(std::string&&);
 }
 
-void Log::errorLog(const std::string&& msg) {
-	std::cout << RED << "[Error]: " << msg << RESET << std::endl;
-}
 
-void Log::debugLog(const std::string&& msg) {
-	std::cout << CYAN << "[DebugLog]: " << msg << RESET << std::endl;
+namespace Log {
+	void Log::messageLog(std::string&& msg) {
+		std::cout << GREEN << "[Message]: " << msg << RESET << std::endl;
+	}
+
+	void Log::errorLog(std::string&& msg) {
+		std::cout << RED << "[Error]: " << msg << RESET << std::endl;
+	}
+
+	void Log::debugLog(std::string&& msg) {
+		std::cout << CYAN << "[DebugLog]: " << msg << RESET << std::endl;
+	}
 }
