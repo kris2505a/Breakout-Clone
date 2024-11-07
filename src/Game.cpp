@@ -2,6 +2,7 @@
 #include "Headers/Log.h"
 #include <fstream>
 #include "Headers/Ball.h"
+#include "Headers/Paddle.h"
 
 
 
@@ -10,6 +11,7 @@ Game::Game() {
 	this->initVariables();
 	this->initWindow();
 	this->ball = new Ball(this->window);
+	this->paddle = new Paddle(this->window);
 }
 
 
@@ -74,4 +76,5 @@ void Game::update() {
 
 void Game::tick() {
 	this->ball->tick(this->deltaTime);
+	this->paddle->tick(this->deltaTime);
 }

@@ -19,6 +19,7 @@ private:
 
 private:
 	class Ball* ball{ nullptr };
+	class Paddle* paddle{ nullptr };
 
 private:
 	void render();
