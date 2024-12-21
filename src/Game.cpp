@@ -1,5 +1,6 @@
 #include "Headers/Game.h"
 #include "Headers/Paddle.h"
+#include "Headers/Ball.h"
 
 
 
@@ -18,6 +19,8 @@ void Game::gameLoop(){
     
     sf::Clock dtClock;
     Paddle paddle(this->window);
+    Ball ball(this->window);
+    // ball.setTick(false);
 
     while(window->isOpen()){
         sf::Event event;
@@ -29,6 +32,7 @@ void Game::gameLoop(){
         }
 
         paddle.tick(this->deltaTime);
+        ball.tick(this->deltaTime);
         window->display();
     }
 }

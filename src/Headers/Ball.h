@@ -6,7 +6,7 @@ class Ball : public Entity{
 private:
     sf::CircleShape ball;
     float radius;
-    float speed;
+    sf::Vector2f speed;
 
     virtual void update(float&) override;
     virtual void render() override;
