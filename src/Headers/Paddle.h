@@ -12,10 +12,11 @@ private:
     virtual void update(float&) override;
     virtual void render() override;
     void limitPaddle();
-    void handleInput(float&);
+    virtual void handleInput(float&);
 
 public:
     Paddle(sf::RenderWindow*);
     virtual ~Paddle() override;
     sf::RectangleShape getShape();
+    float getWidth();
 };

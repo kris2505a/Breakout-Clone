@@ -11,6 +11,8 @@ Ball::Ball(sf::RenderWindow* window, Paddle* pl){
     this->position = sf::Vector2f((WIN_WIDTH / 2), (WIN_HEIGHT - (30+ radius)));
     this->ball.setPosition(this->position);
     this->speed = sf::Vector2f(600, 600);
+    this->setTick(false);
+    this->health = 3;
 }
 
 void Ball::render() {
@@ -18,7 +20,10 @@ void Ball::render() {
 }
 
 void Ball::update(float& deltaTime){
-    this->position -= this->speed * deltaTime;
+    this->handleInput(deltaTime);
+    if(this->canTick)
+        this->position -= this->speed * deltaTime;
+    this->resetBall();
     this->ball.setPosition(this->position);
     if(this->position.x <= 0 || this->position.x >= WIN_WIDTH)
         this->speed.x *= -1;
@@ -30,19 +35,28 @@ void Ball::update(float& deltaTime){
 
 void Ball::bounceBall(){
     if(Collision::isCollision(this->player->getShape(), this->ball)){
-        this->speed.x *= -1;
         this->speed.y *= -1;
     }
 }
 
 void Ball::resetBall(){
-    if(this->position.y > WIN_HEIGHT){
+    if(!this->canTick && this->health > 0){
         this->setTick(false);
-        this->position = sf::Vector2f((WIN_WIDTH / 2), (WIN_HEIGHT - (30+ radius)));  
-          
+        this->position = this->player->getPosition();
+        this->position.y -= 20.f;  
+        this->position.x += this->player->getWidth() / 2;   
+    }
+    if(this->position.y > WIN_HEIGHT + 100){
+        this->setTick(false);
+        this->health--;
     }
 }
 
 Ball::~Ball(){
 
+}
+
+void Ball::handleInput(float&){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !this->canTick)
+        this->setTick(true);
 }

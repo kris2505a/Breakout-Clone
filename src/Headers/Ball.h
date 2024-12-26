@@ -9,11 +9,14 @@ private:
     float radius;
     sf::Vector2f speed;
     Paddle* player;
+    int health;
 
     virtual void update(float&) override;
     virtual void render() override;
+    virtual void handleInput(float&) override;
     void resetBall();
     void bounceBall();
+    
 
 public:
     Ball(sf::RenderWindow*, Paddle*);

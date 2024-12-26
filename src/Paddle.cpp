@@ -44,3 +44,7 @@ Paddle::~Paddle(){
 sf::RectangleShape Paddle::getShape(){
     return this->pad;
 }
+
+float Paddle::getWidth(){
+    return this->width;
+}
