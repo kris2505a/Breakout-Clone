@@ -19,7 +19,7 @@ void Game::gameLoop(){
     
     sf::Clock dtClock;
     Paddle paddle(this->window);
-    Ball ball(this->window);
+    Ball ball(this->window, &paddle);
     // ball.setTick(false);
 
     while(window->isOpen()){

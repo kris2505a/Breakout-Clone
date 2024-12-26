@@ -17,4 +17,5 @@ private:
 public:
     Paddle(sf::RenderWindow*);
     virtual ~Paddle() override;
+    sf::RectangleShape getShape();
 };

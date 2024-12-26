@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 namespace Collision {
-    bool isCollision(sf::RectangleShape& rect, sf::CircleShape& circle) {
+    bool isCollision(sf::RectangleShape rect, sf::CircleShape circle) {
         sf::Vector2f circleCenter = circle.getPosition() + sf::Vector2f(circle.getRadius(), circle.getRadius());
         float radius = circle.getRadius();
 

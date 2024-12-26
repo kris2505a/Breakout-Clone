@@ -40,3 +40,7 @@ void Paddle::handleInput(float& deltaTime){
 Paddle::~Paddle(){
 
 }
+
+sf::RectangleShape Paddle::getShape(){
+    return this->pad;
+}

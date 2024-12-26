@@ -13,9 +13,8 @@ public:
     inline Entity(){ this->canTick = true; }
     virtual ~Entity() = default;
     inline virtual void tick(float& deltaTime) {
-        if(!this->canTick)
-            return;
-        this->update(deltaTime);
+        if(this->canTick)
+            this->update(deltaTime);
         this->render();
     }
     inline bool tickStatus() { return this->canTick; }
