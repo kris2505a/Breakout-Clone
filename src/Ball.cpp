@@ -1,4 +1,5 @@
 #include "Headers/Ball.h"
+#include "Headers/Collision.h"
 #include "Config.h"
 
 Ball::Ball(sf::RenderWindow* window){
@@ -23,6 +24,7 @@ void Ball::update(float& deltaTime){
     if(this->position.y <= 0)
         this->speed.y *= -1;
 }
+
 
 Ball::~Ball(){
 

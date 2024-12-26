@@ -11,6 +11,7 @@ private:
     virtual void update(float&) override;
     virtual void render() override;
     void resetBall();
+    void bounceBall();
 
 public:
     Ball(sf::RenderWindow*);
