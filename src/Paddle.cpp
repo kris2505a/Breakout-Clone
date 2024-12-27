@@ -4,7 +4,7 @@
 
 Paddle::Paddle(sf::RenderWindow* window) {
     this->targetWindow = window;
-    this->width = 80.0f;
+    this->width = 110.0f;
     this->height = 20.0f;
     this->position = sf::Vector2f((WIN_WIDTH - this->width) / 2, (WIN_HEIGHT - this->height));
     this->pad.setFillColor(sf::Color::White);

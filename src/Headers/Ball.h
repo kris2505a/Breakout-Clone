@@ -21,4 +21,6 @@ private:
 public:
     Ball(sf::RenderWindow*, Paddle*);
     virtual ~Ball() override;
+    int getHealth();
+    
 };

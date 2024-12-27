@@ -1,6 +1,5 @@
 #include "Headers/Game.h"
-#include "Headers/Paddle.h"
-#include "Headers/Ball.h"
+#include "Headers/GameMode.h"
 
 
 
@@ -18,9 +17,7 @@ void Game::gameLoop(){
         return;
     
     sf::Clock dtClock;
-    Paddle paddle(this->window);
-    Ball ball(this->window, &paddle);
-    // ball.setTick(false);
+    GameMode mode(this->window);
 
     while(window->isOpen()){
         sf::Event event;
@@ -31,8 +28,7 @@ void Game::gameLoop(){
                 window->close();
         }
 
-        paddle.tick(this->deltaTime);
-        ball.tick(this->deltaTime);
+        mode.tick(this->deltaTime);
         window->display();
     }
 }

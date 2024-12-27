@@ -20,10 +20,12 @@ void Ball::render() {
 }
 
 void Ball::update(float& deltaTime){
+    if(this->health <= 0 && !this->canTick){
+        return;
+    }
     this->handleInput(deltaTime);
     if(this->canTick)
         this->position -= this->speed * deltaTime;
-    this->resetBall();
     this->ball.setPosition(this->position);
     if(this->position.x <= 0 || this->position.x >= WIN_WIDTH)
         this->speed.x *= -1;
@@ -40,6 +42,7 @@ void Ball::bounceBall(){
 }
 
 void Ball::resetBall(){
+    
     if(!this->canTick && this->health > 0){
         this->setTick(false);
         this->position = this->player->getPosition();
@@ -59,4 +62,8 @@ Ball::~Ball(){
 void Ball::handleInput(float&){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !this->canTick)
         this->setTick(true);
+}
+
+int Ball::getHealth(){
+    return this->health;
 }
