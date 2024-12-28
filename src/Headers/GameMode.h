@@ -13,6 +13,9 @@ private:
     int score {0};
     void render();
     void update(float&);
+    sf::Font font;
+    sf::Text scoreIndicator, healthIndicator;
+    sf::Text gameOverIndicator;
 
 public:
     GameMode(sf::RenderWindow*);
