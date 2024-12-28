@@ -33,7 +33,6 @@ void GameMode::render(){
     }
     this->targetWindow->draw(this->scoreIndicator);
     this->targetWindow->draw(this->healthIndicator);
-    
 }
 
 void GameMode::update(float& deltaTime){
