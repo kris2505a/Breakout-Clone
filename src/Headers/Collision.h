@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-namespace Collision {
-    bool isCollision(sf::RectangleShape rect, sf::CircleShape circle) {
+class Collision {
+
+public:
+    static bool isCollision(sf::RectangleShape rect, sf::CircleShape circle) {
         sf::Vector2f circleCenter = circle.getPosition() + sf::Vector2f(circle.getRadius(), circle.getRadius());
         float radius = circle.getRadius();
 
@@ -19,4 +21,4 @@ namespace Collision {
         return (distanceX * distanceX + distanceY * distanceY) <= (radius * radius);
     }
   
-} 
+};

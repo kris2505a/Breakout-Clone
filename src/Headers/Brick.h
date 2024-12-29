@@ -9,12 +9,15 @@ private:
     sf::RenderWindow* targetWindow;
     Ball* ball;
     sf::RectangleShape brick;
+    bool activeStatus;
 
     virtual void render() override;
     virtual void update(float&) override;
+    virtual void handleInput(float&) override;
 
 public:
     Brick(sf::RenderWindow*, Ball*, sf::Vector2f);
     ~Brick() = default;
+    bool isActive();
 
 };

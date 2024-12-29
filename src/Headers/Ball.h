@@ -15,12 +15,13 @@ private:
     virtual void render() override;
     virtual void handleInput(float&) override;
     void resetBall();
-    void bounceBall();
     
 
 public:
     Ball(sf::RenderWindow*, Paddle*);
-    virtual ~Ball() override;
+    virtual ~Ball() override = default;
     int getHealth();
-    
+    sf::CircleShape getBall();
+    void bounceBall();
+    void reverseBall();
 };

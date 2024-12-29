@@ -55,9 +55,7 @@ void Ball::resetBall(){
     }
 }
 
-Ball::~Ball(){
 
-}
 
 void Ball::handleInput(float&){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !this->canTick)
@@ -66,4 +64,12 @@ void Ball::handleInput(float&){
 
 int Ball::getHealth(){
     return this->health;
+}
+
+sf::CircleShape Ball::getBall(){
+    return this->ball;
+}
+
+void Ball::reverseBall(){
+    this->speed.y *= -1;
 }

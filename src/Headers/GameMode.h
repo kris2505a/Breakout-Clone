@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "Ball.h"
 #include "Paddle.h"
+#include "Brick.h"
+#include <vector>
 
 
 class GameMode{
@@ -9,6 +11,7 @@ private:
     sf::RenderWindow* targetWindow {nullptr};
     Paddle* player {nullptr};
     Ball* ball {nullptr};
+    std::vector <Brick*> bricks;
     int health {0};
     int score {0};
     void render();
@@ -16,9 +19,11 @@ private:
     sf::Font font;
     sf::Text scoreIndicator, healthIndicator;
     sf::Text gameOverIndicator;
+    void createBricks();
 
 public:
     GameMode(sf::RenderWindow*);
     void tick(float&);
+    ~GameMode();
 
 };
