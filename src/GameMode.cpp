@@ -10,10 +10,7 @@ GameMode::GameMode(sf::RenderWindow* window){
     this->health = 3;
 
     this->font.loadFromFile("resources/GyrochromeVF.ttf");
-    
-    this->scoreIndicator.setFont(this->font);
-    this->scoreIndicator.setFillColor(sf::Color::Cyan);
-    this->scoreIndicator.setPosition(sf::Vector2f(10, 10));
+
 
     this->healthIndicator.setFont(this->font);
     this->healthIndicator.setFillColor(sf::Color::Cyan);
@@ -34,7 +31,6 @@ void GameMode::render(){
         this->targetWindow->draw(this->gameOverIndicator);
         return;
     }
-    this->targetWindow->draw(this->scoreIndicator);
     this->targetWindow->draw(this->healthIndicator);
 }
 
@@ -44,7 +40,6 @@ void GameMode::update(float& deltaTime){
         this->player->setTick(false);
     }
     this->health = this->ball->getHealth();
-    this->scoreIndicator.setString("Score: " + std::to_string(this->score));
     this->healthIndicator.setString("Health: " + std::to_string(this->health));
 }
 

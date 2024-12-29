@@ -13,11 +13,10 @@ private:
     Ball* ball {nullptr};
     std::vector <Brick*> bricks;
     int health {0};
-    int score {0};
     void render();
     void update(float&);
     sf::Font font;
-    sf::Text scoreIndicator, healthIndicator;
+    sf::Text healthIndicator;
     sf::Text gameOverIndicator;
     void createBricks();
 
