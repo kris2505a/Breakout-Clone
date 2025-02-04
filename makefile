@@ -34,7 +34,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-# Clean up the build artifacts
+# Clean up thebuilda files
 .PHONY: clean
 clean:
 	del /Q $(BUILD_DIR)\*.o 2>nul
