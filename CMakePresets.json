@@ -4,8 +4,8 @@
     {
       "name": "debug",
       "displayName": "Debug",
-      "generator": "Unix Makefiles",
-      "binaryDir": "${sourceDir}/build/debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_COMPILER": "g++"
@@ -14,12 +14,23 @@
     {
       "name": "release",
       "displayName": "Release",
-      "generator": "Unix Makefiles",
-      "binaryDir": "${sourceDir}/build/release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_CXX_COMPILER": "g++"
       }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
     }
   ]
 }
