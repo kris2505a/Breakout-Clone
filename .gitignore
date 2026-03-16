@@ -1,3 +1,9 @@
-out/
-.cache/
-compile_commands.json
+*.sln
+*.vcxproj
+*.filter
+*.user
+binaries/
+
+intermediate/
+.vs
+.vscode
